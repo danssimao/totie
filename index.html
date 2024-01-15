@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            border: 2px solid #000;
+        }
+
+        .node {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 2px solid red;
+            cursor: grab;
+        }
+
+        .node-1 {
+            top: 100px;
+            left: 100px;
+        }
+
+        .node-2 {
+            top: 100px;
+            left: 350px;
+        }
+
+        .connection {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #000;
+            background: #fff;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .connection-out {
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%)
+        }
+
+        .connection-in {
+            top: 50%;
+            right: 100%;
+            transform: translate(50%, -50%)
+        }
+    </style>
+    <script type="module" src="index.js" defer></script>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="node node-1">
+            <div class="connection connection-out"></div>
+        </div>
+    
+        <div class="node node-2">
+            <div class="connection connection-in"></div>
+        </div>
+    </div>
+
+
+</body>
+</html>
