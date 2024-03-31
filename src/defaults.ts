@@ -2,7 +2,7 @@ export const style = {
     borderStyle: 'dashed',
     borderColor: '#000',
     position: 'absolute',
-    zIndex: 10, 
+    zIndex: '10', 
 };
 
 export const settings = {
@@ -15,6 +15,6 @@ export const settings = {
     deleteButtonTitle: 'Delete Title',
     deleteButtonChildElement: null,
     label: 'Label',
-    onDelete: () => {},
+    onRemove: () => {},
 };
 

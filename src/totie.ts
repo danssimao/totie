@@ -2,7 +2,33 @@ import { SOURCES } from "./consts.js";
 import { style, settings } from "./defaults.js";
 import { merge, getDistanceBetweenPoints, getAxis, getRadians, getDegrees } from "./utils.js";
 
-class Connector {
+type TotieSettings = {
+    originX: number;
+    originY: number;
+    targetX: number;
+    targetY: number;
+    lineStroke: number;
+    deleteButtonText: string;
+    deleteButtonTitle: string;
+    deleteButtonChildElement: HTMLElement | null;
+    label: string;
+    onRemove: () => void;
+}
+
+type Event = MouseEvent;
+
+type EventParams = [HTMLElement, string, (event: Event) => void];
+
+class Totie {
+    settings: TotieSettings;
+    LabelElement: HTMLElement;
+    InElement: HTMLElement;
+    OutElement: HTMLElement;
+    element: HTMLElement;
+    container: HTMLElement;
+    events: Array<EventParams>;
+    distance: number;
+
     constructor({
             origin = null, 
             target = null, 
@@ -25,7 +51,7 @@ class Connector {
     }
 
     static create({origin, target, container}, options) {
-        return new Connector({origin, target, container}, options);
+        return new Totie({origin, target, container}, options);
     }
 
     getBounds(source) {
@@ -72,7 +98,7 @@ class Connector {
     }
 
     remove() {
-        this.events.forEach(([target, event, fn]) => {
+        this.events.forEach(([target, event, fn]: EventParams) => {
             target.removeEventListener(event, fn);
         });
         this.element.remove();
@@ -150,7 +176,7 @@ class Connector {
         return { radians, degrees };
     }
 
-    addEvent(target, event, fn) {
+    addEvent(target: HTMLElement, event: string, fn: (event: Event) => void) {
         target.addEventListener(event, fn);
         this.events.push([target, event, fn]);
         return this;
@@ -158,7 +184,7 @@ class Connector {
 
     loadEvents() {
         this
-            .addEvent(this.element, 'mouseover', (event) => {
+            .addEvent(this.element, 'mouseover', (event: Event) => {
                 event.stopPropagation();
                 this.element.style.borderColor = 'green';
             })
@@ -211,4 +237,4 @@ class Connector {
     }
 }
 
-export default Connector;
+export default Totie;

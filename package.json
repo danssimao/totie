@@ -1,0 +1,28 @@
+{
+  "name": "totie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -w --config rollup.config.dev.ts --bundleConfigAsCjs --configPlugin @rollup/plugin-typescript",
+    "build": "rollup --config rollup.config.prod.ts --bundleConfigAsCjs --configPlugin @rollup/plugin-typescript"
+  },
+  "keywords": [],
+  "author": "Daniel Simão da Silva",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.11.30",
+    "esbuild": "^0.20.2",
+    "rollup": "^4.13.2",
+    "rollup-plugin-cleandir": "^2.0.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.3"
+  }
+}
