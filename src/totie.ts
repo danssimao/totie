@@ -1,19 +1,6 @@
 import { SOURCES } from "./consts.js";
-import { style, settings } from "./defaults.js";
+import { style, settings, TotieSettings } from "./defaults.js";
 import { merge, getDistanceBetweenPoints, getAxis, getRadians, getDegrees } from "./utils.js";
-
-type TotieSettings = {
-    originX: number;
-    originY: number;
-    targetX: number;
-    targetY: number;
-    lineStroke: number;
-    deleteButtonText: string;
-    deleteButtonTitle: string;
-    deleteButtonChildElement: HTMLElement | null;
-    label: string;
-    onRemove: () => void;
-}
 
 type Event = MouseEvent;
 

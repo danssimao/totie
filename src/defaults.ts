@@ -5,7 +5,20 @@ export const style = {
     zIndex: '10', 
 };
 
-export const settings = {
+export type TotieSettings = {
+    originX: number;
+    originY: number;
+    targetX: number;
+    targetY: number;
+    lineStroke: number;
+    deleteButtonText: string;
+    deleteButtonTitle: string;
+    deleteButtonChildElement: HTMLElement | null;
+    label: string;
+    onRemove: () => void;
+};
+
+export const settings: TotieSettings = {
     originX: 0,
     originY: 0,
     targetX: 0,
